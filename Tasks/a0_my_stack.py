@@ -14,7 +14,7 @@ def push(elem: Any) -> None:
     :return: Nothing
     """
     _stack.append (elem)
-    return None
+
 
 
 def pop() -> Any:
@@ -25,7 +25,7 @@ def pop() -> Any:
     """
     if len (_stack):
         return _stack.pop (-1)
-    return None
+
 
 
 def peek(ind: int = 0) -> Any:
@@ -39,7 +39,7 @@ def peek(ind: int = 0) -> Any:
     if 0 <= ind < len(_stack):
 
         return _stack[-(ind+1)]
-    return None
+
 
 
 def clear() -> None:
