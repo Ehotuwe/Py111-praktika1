@@ -5,6 +5,7 @@ from typing import Any
 
 _stack = []
 
+
 def enqueue(elem: Any) -> None:
     """
     Operation that add element to the end of the queue
@@ -12,7 +13,8 @@ def enqueue(elem: Any) -> None:
     :param elem: element to be added
     :return: Nothing
     """
-    _stack.append(elem)
+    _stack.append (elem)
+
 
 def dequeue() -> Any:
     """
@@ -24,7 +26,6 @@ def dequeue() -> Any:
         return _stack.pop (0)
 
 
-
 def peek(ind: int = 0) -> Any:
     """
     Allow you to see at the element in the queue without dequeuing it
@@ -32,7 +33,7 @@ def peek(ind: int = 0) -> Any:
     :param ind: index of element (count from the beginning)
     :return: peeked element
     """
-    print(ind)
+    print (ind)
     if 0 <= ind < len (_stack):
         return _stack[ind]
 
@@ -45,4 +46,3 @@ def clear() -> None:
     """
     global _stack
     _stack = []
-
