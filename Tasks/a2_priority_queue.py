@@ -20,7 +20,7 @@ def enqueue(elem: Any, priority: int = 0) -> None:
         d[k].append(elem)
     else:
         d.update({k: v})
-    d = {k: v for k, v in sorted (d.items (), key=lambda item: item[0])}
+
 
 def dequeue() -> Any:
     """
@@ -28,7 +28,7 @@ def dequeue() -> Any:
 
     :return: dequeued element
     """
-    for item in d:
+    for item in sorted(d):
         if len(d[item]):
             return d[item].pop(0)
 
@@ -40,9 +40,8 @@ def peek(ind: int = 0, priority: int = 0) -> Any:
     :param ind: index of element (count from the beginning)
     :return: peeked element
     """
-    for item in d:
-        if 0 <= ind < len (d[item]):
-            return d[priority][ind]
+    if 0 <= ind < len(d[priority]):
+        return d[priority][ind]
 
 
 def clear() -> None:
