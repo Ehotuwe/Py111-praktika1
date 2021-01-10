@@ -49,4 +49,4 @@ def calculate_paths(shape: (int, int), point: (int, int)) -> int:
             w = d[(a - 2, b + 1)] * 2
 
         d[a, b] = x + y + z + w
-    return d[point]
+    return d[point[0]+1,point[1]+1]
