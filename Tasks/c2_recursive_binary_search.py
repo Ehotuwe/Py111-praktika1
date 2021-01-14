@@ -15,7 +15,12 @@ def binary_search(elem: int, arr: Sequence) -> Optional[int]:
     mid_ind = (l_ind + f_ind) // 2
 
     if arr[mid_ind] == elem:
+
+        if arr[mid_ind] == arr[mid_ind - 1]:
+            return binary_search (elem, arr[:mid_ind + 1])
         return mid_ind
+    if arr[l_ind]==elem:
+        return l_ind
 
     if arr[mid_ind] > elem:
         return None if mid_ind == 0 else binary_search(elem, arr[:mid_ind + 1])
