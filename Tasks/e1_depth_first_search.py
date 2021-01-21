@@ -11,14 +11,14 @@ def dfs(g: nx.Graph, start_node: Hashable) -> List[Hashable]:
     :return: list of nodes in the visited order
     """
     already_seen = []
+    dfs_list = []
     queue = [start_node]
 
     while queue:
-        current_node = queue.pop ()
-        already_seen.append (current_node)
+        current_node = queue.pop()
+        if current_node not in already_seen:
+            already_seen.append(current_node)
+            dfs_list.append(current_node)
+            queue.extend(reversed(list(g.neighbors (current_node))))
 
-        for node in g.neighbors (current_node):
-            if node not in already_seen and node not in queue:
-                queue.append (node)
-
-    return already_seen
+    return dfs_list
