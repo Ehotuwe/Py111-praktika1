@@ -17,13 +17,23 @@ def dijkstra_algo(g: nx.DiGraph, starting_node: Hashable) -> Mapping[Hashable, U
     queue = [starting_node]
 
     while queue:
-        current_node = queue.pop ()
+        min_node = ''
+        min_ = 1000000
+        for node in queue:
+            if d[node] < min_:
+                min_ = d[node]
+                min_node = node
+
+        current_node = min_node
+        queue.remove (min_node)
         neighbors.append (current_node)
+
         for node in g.neighbors (current_node):
-            if node not in neighbors and node not in queue:
-                queue.append (node)
 
             if d[node] > g[current_node][node]['weight'] + d[current_node]:
                 d[node] = g[current_node][node]['weight'] + d[current_node]
+
+            if node not in neighbors and node not in queue:
+                queue.append (node)
 
     return d
